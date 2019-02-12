@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import { mount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import InputCropper from '@/components/InputCropper';
 
 describe('Input.vue', () => {
 
     it('check is wrapper a div', () => {
         const wrapper = mount(InputCropper);
-        expect(wrapper.is('div')).to.equal(true);
+        expect(wrapper.is('form')).to.equal(true);
     });
 
     it('check does wrapper has a class file-upload', () => {

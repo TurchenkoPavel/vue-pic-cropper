@@ -1,5 +1,5 @@
 <template>
-    <div class="file-upload">
+    <form class="file-upload">
         <input type="file" id="files" class="file-upload__input">
         <label for="files" class="file-upload__label">
             <figure>
@@ -9,7 +9,7 @@
             </figure>
             <span>Choose a file</span>
         </label>
-    </div>
+    </form>
 </template>
 
 <script>
@@ -19,6 +19,9 @@
 </script>
 
 <style scoped>
+    .file-upload {
+        text-align: center;
+    }
 .file-upload__label {
     max-width: 80%;
     font-size: 1.25rem;
