@@ -1,5 +1,5 @@
 <template>
-  <input-cropper></input-cropper>
+  <InputCropper :form="'input'"/>
 </template>
 
 <script>
@@ -7,13 +7,9 @@
   import InputCropper from './components/InputCropper';
 
 export default {
-  name: 'app',
+  name: 'App',
     components: {
         InputCropper
     }
 }
 </script>
-
-<style>
-
-</style>

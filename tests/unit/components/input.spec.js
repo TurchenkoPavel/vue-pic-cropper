@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { mount, shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import InputCropper from '@/components/InputCropper';
 
 describe('Input.vue', () => {
@@ -16,26 +16,26 @@ describe('Input.vue', () => {
 
     it('find input', () => {
         const wrapper = mount(InputCropper);
-        const input = wrapper.find('input[type="file"]')
+        const input = wrapper.find('input[type="file"]');
         expect(input.is('input')).to.equal(true)
     });
 
     it('does input has a file type', () => {
         const wrapper = mount(InputCropper);
-        const input = wrapper.find('input[type="file"]')
-        expect(input.attributes('type')).to.equal('file')
+        const input = wrapper.find('input[type="file"]');
+        expect(input.attributes('type')).to.equal('file');
     });
 
     it('does input has class .file-upload__input', () => {
         const wrapper = mount(InputCropper);
-        const input = wrapper.find('input[type="file"]')
-        expect(input.classes()).to.contain('file-upload__input')
+        const input = wrapper.find('input[type="file"]');
+        expect(input.classes()).to.contain('file-upload__input');
     });
 
     it('does input has id #files', () => {
         const wrapper = mount(InputCropper);
-        const input = wrapper.find('input[type="file"]')
-        expect(input.attributes('id')).to.equal('files')
+        const input = wrapper.find('input[type="file"]');
+        expect(input.attributes('id')).to.equal('files');
     });
 
     it('find label for input', () => {
@@ -54,6 +54,20 @@ describe('Input.vue', () => {
         const label_text = 'Choose a file';
         const wrapper = mount(InputCropper);
         expect(wrapper.find('label').text()).to.equal(label_text);
+    });
+
+    it('check download file to input', () => {
+        const files = [{
+            name: "test.png",
+            size: 50000,
+            type: "image/png"
+        }];
+        const wrapper = mount(InputCropper);
+        const input = wrapper.find('input[type="file"]');
+        input.files = files;
+        input.trigger('change');
+
+        expect(input.files.length).to.equal(1);
     });
 
 });
